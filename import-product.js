@@ -75,7 +75,53 @@ async function importLocalProducts() {
         category: 'Artificial Plants',
         price: 450.00,
         thumbnail_url: 'https://garden.qa/cdn/shop/files/1767802864527-cts.jpg'
-      }
+      },
+
+      {
+        id: 6,
+        product_name: 'Charming Pink - Everlasting Flower Charm Keychain (Real Preserved Roses and Dried Flowers Charm for Bags)',
+        description: 'The perfect fashion accessory for your loved one! This one-of-a-kind everlasting preserved flower charm is beautiful to look at, and made of real quality dried roses! Carry a symbol of delight wherever you go today!',
+        category: 'Dried Flowers Keychain',
+        price: 150.00,
+        thumbnail_url: 'https://rainbowly.com/cdn/shop/products/charming-pink-everlasting-flower-charm-keychain-real-preserved-roses-and-dried-flowers-charm-for-bags-440231_800x800_crop_center@2x.jpg?v=1668407136'
+      },
+      {
+        id: 7,
+        product_name: 'Lavish Love Flower Bouquet',
+        description: 'Celebrate lifes special moments with the Lavish Love Flower Bouquet, a vibrant and heartwarming floral arrangement featuring 10 assorted carnations, 10 assorted gerberas, 1 sunflower, and 1 stargazer lily, elegantly wrapped in premium Chinese burlap wrap.',
+        category: 'Flowers Bouquet',
+        price: 700.00,
+        thumbnail_url: 'https://gloristflowers.com/cdn/shop/files/lavish-love-flower-bouquet-carnation-gerbera-sunflower-stargazer.jpg?v=1781690769&width=493'
+      },
+       {
+        id: 8,
+        product_name: 'Ashbury Pressed Flowers Keychain - Yellow Orange',
+        description: 'This keychain features enclosed dried flowers. Its so hard to choose which colour is my favourite; I might just have to get all three!',
+        category: 'Dried Flowers Keychain',
+        price: 180.00,
+        thumbnail_url: 'https://plankscanada.com/cdn/shop/files/AshburyPressedFlowersKeychain-YellowOrange.jpg?v=1738356508&width=823'
+      },
+      {
+        id: 9,
+        product_name: 'Key Chain with Dried Flowers in Resin',
+        description: 'Take a bit of the farm with you wherever you go! We are so excited to introduce our pressed flower resin art in this adorable key chain. Each item is unique and involves an eight month process with all botanicals grown, harvested and pressed at our farm.',
+        category: 'Dried Flowers Keychain',
+        price: 180.00,
+        thumbnail_url: 'https://1818farms.com/cdn/shop/products/ResinKeychainsby1818Farms-Square_499083f2-abb8-44e3-b759-3c8a6331de8d.jpg?v=1675188660&width=713'
+      },
+
+       {
+        id: 10,
+        product_name: 'Mini Keychain Bible Souvenir w/ dried flowers for Baptism, Christening, Wedding free tag',
+        description: 'Mini Keychain Bible Assorted Dried Flower Minimum of 10pcs per order',
+        category: 'Dried Flowers Keychain',
+        price: 100.00,
+        thumbnail_url: 'https://down-ph.img.susercontent.com/file/ph-11134207-820le-mngmkaqrgj5x47.webp'
+      },
+
+
+
+      
     ];
 
     for (const p of localProducts) {
