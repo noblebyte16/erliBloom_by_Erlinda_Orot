@@ -1,0 +1,982 @@
+cc
+
+/* Main Workspace */
+.main-workspace, .phone-screen {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  overflow-y: visible;
+}
+
+.main-header{
+  margin-bottom: 0px;
+  margin-top: 10px;
+  border: 1px solid #9c520c;
+  
+}
+/* Search Bar & Banner */
+
+.search-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: auto!important;
+    margin-top: 3px;
+    margin-bottom: 1%;;
+    
+}
+.search-container input {
+  width: 99%;
+  padding: 10px 16px;
+  border: 1px solid #9c520c;
+  border-radius: 8px;
+
+  outline: none;
+  font-size: 0.95rem;
+  background-color: #fff;
+  
+}
+
+.header-banner {
+  
+  margin-bottom: 15px;
+}
+
+.sub-heading {
+  
+  color: var(--gray);
+  font-size: 10 rem;
+    margin-left: 22px;
+    margin-right: 20px;
+  
+}
+
+.main-heading {
+  
+  font-size: 1.8rem;
+  color:#61340a;
+  margin-top: -35px;
+    margin-left: 40px;
+    margin-right: 20px;
+  
+}
+
+/* Categories UI */
+.categories-section {
+  margin-bottom: 30px;
+
+}
+.section-cat-title{
+   font-size: 1.3rem;
+  margin-bottom: 8px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+.section-title {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  margin-left: 40px;
+  margin-right: 20px;
+
+
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  margin-left: 40px;
+  margin-right: 20px;
+  
+}
+
+.filter-btn {
+  white-space: nowrap;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+}
+
+.filter-btn.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+ 
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #775023 !important;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the button to the bottom */
+  height: 100%;                  /* Forces uniform height across the row */
+  box-sizing: border-box;
+}
+
+ .product-img-container {
+  width: 100%;
+  height: 180px; /* Adjust height as needed for your grid */
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.product-img {
+  width: 100% !important;
+  height: 100% !important;      
+  object-fit: fill !important; /* Forces the photo to stretch edge-to-edge, removing side gaps */
+  display: block;
+}
+
+/* Ensures the text section fills middle space and button stays anchored */
+.product-info, .product-card > div:not(.product-img-container) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.btn-add-cart {
+    margin-top: 12px;
+    width: 100%;
+}
+.product-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 0.8rem;
+  color: var(--primary);
+  margin: 4px 0;
+}
+
+.add-to-cart {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* Sliding Cart Drawer (Desktop Panel Sizing) */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 100;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease-in-out;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.close-cart {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-items {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.cart-footer {
+  padding: 15px;
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Background Dimmer Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+  display: none;
+}
+
+.overlay.open {
+  display: block;
+}
+
+/* Cart Item Layout */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-item-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cart-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.cart-item-price {
+  font-size: 0.75rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+/* Quantity Stepper & Delete */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fcfcfc;
+  padding: 1px 4px;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  padding: 1px 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.qty-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.68rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-delete:hover {
+  color: #e53935;
+  text-decoration: line-through;
+  
+}
+
+/* Subtotal & Summary Section */
+.cart-summary-section {
+  margin: 16px 8px 8px 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #dcd6c8;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.summary-row.total-row {
+  font-size: 0.9rem;
+  color: #111;
+  margin-top: 8px;
+}
+
+
+
+
+/* The box holding the owner's picture */
+/* --- Hero Section Layout (Image Left, Text Right) --- */
+.hero-section {
+  display: flex !important;
+  align-items: center !important;
+  gap: 30px !important;
+  margin: 30px 0 !important;
+  width: 100% !important;
+}
+
+/* --- Medium-Big Owner Image Styling --- */
+.owner-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+
+.owner-img {
+  width: 300px !important;  /* Medium-big square size */
+  height: 350px !important;
+  object-fit: cover !important;
+  border-radius: 150px 150pxb0px 0px!important;
+  border: 1px solid #dcd6c8 !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05) !important;
+}
+
+.owner-label {
+  
+  font-size: 0.85rem !important;
+  color: #555 !important;
+  margin-top: 8px !important;
+  text-align: center !important;
+}
+
+/* --- Right-Side Text Styling --- */
+.hero-text-container {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+.hero-subtext {
+    font-size: 2.2rem;
+    color: #4a5d4e;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.bloom-word {
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+/* Optional soft green highlight behind Bloom */
+.bloom-word::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background-color: #d4e0d4;
+    z-index: -1;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+
+
+.hero-enjoy {
+  font-size: 1rem !important;
+  color: #666 !important;
+  margin: 0 0 2px 0 !important;
+}
+
+.hero-title {
+  font-family: 'Georgia', serif !important;
+  font-size: 2.2rem !important;
+  color: #1a1a1a !important;
+  margin: 0 !important;
+  font-weight: bold !important;
+}
+
+/* Ensure the existing section title has proper spacing below the banner */
+.section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+/* --- Header Layout Matching Reference --- */
+.main-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 20px 40px !important;
+  background-color: #fcfbfa !important;
+  border-bottom: 1px solid #eae6df !important;
+  box-sizing: border-box !important;
+}
+
+.logo-area {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.logo-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #6b3009;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* --- Right-Aligned Nav Menu --- */
+/* --- Navigation Links styled like Category Buttons --- */
+.nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  position: relative;
+  z-index: 101; /* Ensures they sit above everything to be clickable */
+}
+
+.nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 16px !important;
+  background-color: transparent !important;
+  color: #333 !important;
+  border-radius: 20px !important; /* Pill button shape */
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+  border: 1px solid transparent !important;
+}
+
+/* Hover effect */
+.nav-item:hover {
+  background-color: #eae6df !important;
+}
+
+/* Active State (Solid colored button like your category filter) */
+.nav-item.active {
+  color: #333 !important;
+}
+
+/* Sidebar stays on top */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(235, 98, 7, 0.699);
+    transition: right 0.3s ease-in-out;
+    z-index: 10000; /* Higher than overlay */
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-sidebar-header {
+  padding: 15px 20px;
+  border-bottom:  1px solid #854306 ;
+}
+.cart-sidebar-body  {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px 20px;
+
+}
+
+.cart-sidebar-footer {
+  padding: 15px 20px;
+  border-top: 1px solid#854306;
+  background: #fff;
+}
+
+
+/* Overlay sits right behind the sidebar */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 9999; /* Lower than sidebar, higher than main content */
+}
+
+.cart-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+.cart-sidebar{
+  z-index: 10000;
+}
+.cart-sidebar-footer, #checkout-btn {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10001; /* Ensure it's above everything else in the drawer */
+}
+
+
+/* Full page split container */
+.login-page-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: #fbf9f7; /* Soft cream background */
+}
+
+/* Left side form styling */
+.login-form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #fcfbfa;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 380px;
+}
+
+.form-wrapper h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #333333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #82947e; /* Sage green focus */
+}
+
+/* Forgot password link */
+.forgot-container {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.forgot-link {
+    font-size: 0.8rem;
+    color: #555555;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Sign in button */
+.btn-signin {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #1e3f20;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+
+.btn-signin:hover {
+    background-color: #637e63
+}
+
+/* Google button */
+.btn-google {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-google:hover {
+    background-color: #f5f5f5;
+}
+
+/* Footer signup text */
+.signup-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666666;
+    margin-top: 30px;
+}
+
+.signup-footer a {
+    color: #1a1a1a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Right side image styling */
+.login-image-side {
+    flex: 1;
+    background-image: url('images/flower-bg.jpeg'); /* Replace with your image file */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+    .login-image-side {
+        display: none; /* Hides the image side on phones so the form takes full width */
+    }
+}
+
+/* Unified Form Wrapper Sizing */
+.form-wrapper {
+    width: 100%;
+    max-width: 380px;
+}
+
+.form-wrapper h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 24px; /* Balanced spacing for more fields */
+}
+
+/* Uniform Input Fields */
+.input-group {
+    margin-bottom: 15px; /* Tighter spacing so 4 fields fit nicely */
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #333333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 14px; /* Compact padding to fit multiple fields cleanly */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #82947e;
+}
+
+.hero-caption, h1, p {
+    font-family: 'Caveat', cursive;
+    font-size: 28px; /* Adjust size as needed */
+    color: #2C2A29;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adds a clean space between the logo and text */
+}
+
+.nav-logo {
+    width: 50px;  /* Adjust width to make it small and neat */
+    height: auto;
+}
+
+/* Hero section layout holding image and text side-by-side with no inner borders */
+.hero-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: 40px !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.hero-text-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Your Arched Image Style */
+.owner-img {
+    width: 280px !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    border-radius: 140px 140px 0px 0px !important; /* Arched top, flat bottom */
+    border: 1px solid #d6d6c8 !important;
+    margin-top: -23px;
+    margin-left: 40px;
+    margin-right: 20px;
+   
+}
+
+/* Adds a soft divider line right below the hero owner section */
+.hero-section {
+    border-bottom: 1px solid #d6d6c8 !important;
+    padding-bottom: 30px !important;
+    margin-bottom: 30px !important;
+}
+/* The normal color of your Add to Cart button */
+.add-to-cart-btn, 
+button.add-to-cart {
+    background-color: #1e3f20 !important; /* Your default green */
+    color: #ffffff !important;
+    transition: background-color 0.2s ease !important;
+}
+
+/* The color it changes to when the mouse hovers over it */
+.add-to-cart-btn:hover, 
+button.add-to-cart:hover {
+    background-color: #637e63 !important; /* Lighter/brighter hover shade */
+    cursor: pointer !important;
+}
+
+/* 1. All Products Button (Sage Green) */
+.filter-btn:nth-child(1), button.filter-btn:first-of-type {
+    background-color: #637e63 !important;
+    color: #ffffff !important;
+    border: 1px solid  #775023 important;
+}
+
+/* 2. Fresh Flowers Button (White with subtle border) */
+.filter-btn:nth-child(2) {
+    background-color: #ffffff !important;
+    color: #4a4a4a !important;
+    border: 1px solid #775023 !important;
+}
+
+/* 3. Vases & Decor / Dried Bouquets Button (Soft Dusty Rose/Beige) */
+.filter-btn:nth-child(3) {
+    background-color: #e5d3c8 !important;
+    color: #4a3b32 !important;
+    border: 1px solid #775023  !important;
+}
+
+/* 4. Fourth Category Button (Light clean outline) */
+.filter-btn:nth-child(4) {
+    background-color: #ebecdbfb !important;
+    color: #4a4a4a !important;
+    border: 1px solid #775023  !important;
+}
+
+/* Active State: Changes ONLY the border color to green when clicked */
+.filter-btn.active {
+    border: 2px solid #637e63 !important;
+    box-shadow: 0 0 5px rgba(99, 126, 99, 0.4);
+}
+
+/* Shared hover and transition effect */
+.filter-btn {
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    font-weight: 500 !important;
+}
+
+.filter-btn:hover {
+    opacity: 0.85 !important;
+    transform: translateY(-1px) !important;
+}
+.hero-plants-container{
+    margin-left: 100px;
+    margin-right: 20px;
+
+}
+.logo {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    color: #552606; /* Chocolate brown theme */
+}
+
+
+.logo-bloom {
+    font-family: 'Caveat', cursive !important;
+    font-weight: 600;
+    font-size: 2.2rem; /* Adjust size as needed */
+    margin-right: -2px; /* Pulls "Bloom" slightly closer */
+
+}
+
+
+  /* Cursive / Script part */
+.logo-erli {
+    font-family: 'Alex Brush'; 
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: -0.9px;
+    color: #994e1c; /* Chocolate brown theme */
+}
+
+.input-field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-field-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* leaves room for the eye icon */
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    color: #333;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>erliBloom</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- Full Desktop Container -->
+  <div class="desktop-container">
+   <header class="main-header">
+    
+  <div class="logo-area">
+    <img src="images/logo.png" alt="Logo" class="nav-logo">
+    <a href="home.html" class="logo">
+    <span class="logo-erli">erli</span><span class="logo-bloom">Bloom</span>
+    </a>
+  </div>
+
+  <nav class="nav-links">
+    <a href="home.html" class="nav-item active">🏠Home</a>
+    <a href="javascript:void(0);" id="cart-toggle" onclick="toggleCart()" class="nav-item"> 🛒 Cart <span id="cart-count">(0)</span></a>
+    <a href="login.html" class="nav-item">👤 Login</a>
+    <a href="registration.html" class="nav-item">📝Sign Up</a>
+  </nav>
+</header>
+    <!-- Main Workspace -->
+    
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search products...">
+      </div>
+
+      <!-- Owner Picture & Text Section -->
+      <div class="hero-section">
+  <!-- Owner Picture Block -->
+  <div class="owner-container">
+    <img src="images/owner.png" alt="Owner of Bloom Market" class="owner-img">
+    <span class="owner-label">Erlinda Fuentes Orot</span>
+  </div>
+
+  <!-- Text Block on the Right -->
+  <div class="hero-text-container">
+     <h2 class="hero-subtext">Your living space <br>deserves to <span class="bloom-word">Bloom</span></h2>
+ 
+ </div>
+      <div class="hero-plants-container">
+        <img src="images/plants.png" alt="plants decoratiion" class="hero-plants-img">
+  
+  </div>
+</div>
+      <!-- Enjoy Shopping Banner -->
+      <div class="header-banner">
+        <p class="sub-heading">Enjoy</p>
+        <h1 class="main-heading">Shopping</h1>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="categories-section">
+        <h3 class="section-cat-title">Categories</h3>
+        <div class="filter-group">
+          <button class="filter-btn active" id="btn-all" data-category="all">All Products</button>
+          <button class="filter-btn" id="btn-bouquet"data-category="Flowers Bouquet">Flowers Bouquet</button>
+          <button class="filter-btn" id="btn-plants" data-category="Artificial Plants">Artificial Plants</button>
+          <button class="filter-btn" id="btn-dried" data-category="Dried Flowers Keychain">Dried Flowers Keychain</button>
+        </div>
+      </div>
+
+      <!-- Catalog Section -->
+      <h3 class="section-title">Daily Discover</h3>
+      <main class="products-grid" id="productGrid">
+        <!-- Items populate dynamically via script.js -->
+   
+
+  </div>
+  
+ 
+
+  <!-- Cart Sidebar Drawer -->
+<div id="cart-drawer" class="cart-sidebar">
+  
+  <div class="cart-sidebar-header">
+    <h3>My Cart</h3>
+  </div>
+
+  <div id="cart-items-container" class="cart-sidebar-body">
+    <p style="text-align: center; color: #777; margin-top: 50px;">Your cart is empty</p>
+  </div>
+
+  <div class="cart-sidebar-footer">
+    <div class="cart-total" style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold;">
+      <span>Total:</span>
+      <span id="cart-total-amount">₱0</span>
+    </div>
+    <button id="checkout-btn" class="checkout-btn" style="width: 100%; padding: 12px; background-color: #2b7a4b; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      Pay with Maya (0)
+    </button>
+  </div>
+</div>
+
+<!-- Dark Overlay Background -->
+<div id="cart-overlay" class="cart-overlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+ 
+
