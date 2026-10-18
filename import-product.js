@@ -42,7 +42,7 @@ async function importLocalProducts() {
         description: 'The Lily Love Flower Bouquet is an enchanting arrangement designed to captivate.',
         category: 'Flowers Bouquet',
         price: 650.00,
-        thumbnail_url: 'https://www.flowerchimp.com.ph/cdn/shop/files/flowerchimp-ph-pure-elegance.jpg'
+        thumbnail_url: 'https://www.flowerchimp.com.ph/cdn/shop/files/flowerchimp-bouquet-productname-2500x2500-02_a1eb246e-04cf-4279-bc23-9e091b282543_493x.jpg?v=1765947898'
       },
       {
         id: 2,
@@ -50,7 +50,7 @@ async function importLocalProducts() {
         description: 'True elegance never fades, it only grows more beautiful with time.',
         category: 'Flowers Bouquet',
         price: 550.00,
-        thumbnail_url: 'https://www.theflowerexpress.com/cdn/shop/files/Lily_Love_Flower_Bouquet.jpg'
+        thumbnail_url: 'https://www.theflowersexpress.com/cdn/shop/files/LilyLove_1024x1024.jpg?v=1725358494'
       },
       {
         id: 3,
@@ -58,7 +58,7 @@ async function importLocalProducts() {
         description: 'Elevate your interior with this lifelike artificial plant.',
         category: 'Artificial Plants',
         price: 300.00,
-        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767780085292-p6t.jpg'
+        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767780085292-p6ri4gdu6gi.jpg?v=1767780854&width=832'
       },
       {
         id: 4,
@@ -66,7 +66,7 @@ async function importLocalProducts() {
         description: 'With a beautiful classic bouquet of red roses, perfect for any occasion.',
         category: 'Flowers Bouquet',
         price: 500.00,
-        thumbnail_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR'
+        thumbnail_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtQKmbKqKDTzGe85e9ruuQYAVB_FV_35FJvr2SWSL4z1tA3-fXHAigL2c&s=10'
       },
       {
         id: 5,
@@ -74,7 +74,7 @@ async function importLocalProducts() {
         description: 'Bring tropical elegance into any space with this stunning plant.',
         category: 'Artificial Plants',
         price: 450.00,
-        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767802864527-cts.jpg'
+        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767802864527-ctsqv8z12s.jpg?v=1767803268&width=832'
       },
 
       {
