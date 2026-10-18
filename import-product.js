@@ -7,10 +7,21 @@ const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'db',
+  database: process.env.DB_NAME || 'railway',
   port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306
 };
 
+// --- ADD THIS MAPPER FUNCTION ---
+function mapCategory(apiCategory) {
+  const cat = (apiCategory || '').toLowerCase();
+  if (cat.includes('flower') || cat.includes('bouquet') || cat.includes('fragrances')) {
+    return 'Flowers Bouquet';
+  }
+  if (cat.includes('plant') || cat.includes('decor') || cat.includes('home')) {
+    return 'Artificial Plants';
+  }
+  return 'Dried Flowers Keychain';
+}
 
 async function importProducts() {
     let connection;
