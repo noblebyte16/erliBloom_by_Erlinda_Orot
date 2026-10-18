@@ -118,6 +118,22 @@ async function importLocalProducts() {
         price: 100.00,
         thumbnail_url: 'https://down-ph.img.susercontent.com/file/ph-11134207-820le-mngmkaqrgj5x47.webp'
       },
+      {
+        id: 11,
+        product_name: 'Der Rose 4 Pack Mini Fake Plants in Black Pots, 7" Bathroom & Desk Decor',
+        description: 'Worried About Size? These four small fake plants are designed for the little spaces a full-size plant would overwhelm. Each is up to 7.1" tall with a compact black pot about 2.76" wide, giving you greenery without giving up useful surface space.',
+        category: 'Artificial Plants',
+        price: 170.00,
+        thumbnail_url: 'https://images-na.ssl-images-amazon.com/images/I/911QXgrv0TL.jpg'
+      },
+       {
+        id: 12,
+        product_name: 'Atificial Anthurium',
+        description: 'Elevate your interior design with this lifelike artificial Anthurium, crafted to capture the exotic elegance of the living plant without maintenance demands. Featuring meticulously detailed leaves and vibrant blooms in rich, saturated hues, this botanical accent brings tropical sophistication to any room—from modern offices to contemporary living spaces. UV-resistant materials ensure lasting color and durability, while the realistic texture and form create an authentic visual impact. Perfect for spaces lacking natural light or for those seeking year-round botanical beauty without watering, pruning, or seasonal decline. An investment in timeless, hassle-free décor.',
+        category: 'Artificial Plants',
+        price: 650.00,
+        thumbnail_url: 'https://garden.qa/cdn/shop/files/1766569473421-c14p7fcudhb.jpg?v=1766569554&width=832'
+      },
 
 
 
