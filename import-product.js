@@ -11,32 +11,13 @@ const dbConfig = {
   port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306
 };
 
-function mapCategory(apiCategory) {
-  const cat = (apiCategory || '').toLowerCase();
-  if (cat.includes('flower') || cat.includes('bouquet') || cat.includes('fragrances')) {
-    return 'Flowers Bouquet';
-  }
-  if (cat.includes('plant') || cat.includes('decor') || cat.includes('home')) {
-    return 'Artificial Plants';
-  }
-  return 'Dried Flowers Keychain';
-}
-
-async function importProducts() {
+async function importLocalProducts() {
   let connection;
   try {
-    console.log('Fetching products from DummyJSON API...');
-    const response = await fetch('https://dummyjson.com/products?limit=10');
-
-    if (!response.ok) throw new Error(`API error: ${response.statusText}`);
-
-    const data = await response.json();
-    const products = data.products;
-
     connection = await mysql.createConnection(dbConfig);
     await connection.beginTransaction();
 
-    // Create table matching your exact phpMyAdmin structure
+    // 1. Create table matching your exact phpMyAdmin structure
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS products (
         id INT PRIMARY KEY,
@@ -53,42 +34,66 @@ async function importProducts() {
     `;
     await connection.execute(createTableQuery);
 
-    for (const product of products) {
-      const mappedCategory = mapCategory(product.category);
+    // 2. Exact local products with real image CDN URLs
+    const localProducts = [
+      {
+        id: 1,
+        product_name: 'Pure Elegance Rose Bouquet',
+        description: 'The Lily Love Flower Bouquet is an enchanting arrangement designed to captivate.',
+        category: 'Flowers Bouquet',
+        price: 650.00,
+        thumbnail_url: 'https://www.flowerchimp.com.ph/cdn/shop/files/flowerchimp-ph-pure-elegance.jpg'
+      },
+      {
+        id: 2,
+        product_name: 'Lily Love Flower Bouquet',
+        description: 'True elegance never fades, it only grows more beautiful with time.',
+        category: 'Flowers Bouquet',
+        price: 550.00,
+        thumbnail_url: 'https://www.theflowerexpress.com/cdn/shop/files/Lily_Love_Flower_Bouquet.jpg'
+      },
+      {
+        id: 3,
+        product_name: 'Artificial Dracaena Lemon Lime Head 65cm',
+        description: 'Elevate your interior with this lifelike artificial plant.',
+        category: 'Artificial Plants',
+        price: 300.00,
+        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767780085292-p6t.jpg'
+      },
+      {
+        id: 4,
+        product_name: '12 Red roses in a bouquet',
+        description: 'With a beautiful classic bouquet of red roses, perfect for any occasion.',
+        category: 'Flowers Bouquet',
+        price: 500.00,
+        thumbnail_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR'
+      },
+      {
+        id: 5,
+        product_name: 'Artificial Bird of Paradise 120cm',
+        description: 'Bring tropical elegance into any space with this stunning plant.',
+        category: 'Artificial Plants',
+        price: 450.00,
+        thumbnail_url: 'https://garden.qa/cdn/shop/files/1767802864527-cts.jpg'
+      }
+    ];
 
-      const productQuery = `
-        INSERT INTO products (id, product_name, description, category, price, discount_percentage, rating, stock, brand, thumbnail_url)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    for (const p of localProducts) {
+      const query = `
+        INSERT INTO products (id, product_name, description, category, price, thumbnail_url)
+        VALUES (?, ?, ?, ?, ?, ?)
         ON DUPLICATE KEY UPDATE
           product_name = VALUES(product_name),
           description = VALUES(description),
           category = VALUES(category),
           price = VALUES(price),
-          discount_percentage = VALUES(discount_percentage),
-          rating = VALUES(rating),
-          stock = VALUES(stock),
-          brand = VALUES(brand),
           thumbnail_url = VALUES(thumbnail_url);
       `;
-
-      const productValues = [
-        product.id,
-        product.title,
-        product.description,
-        mappedCategory,
-        product.price,
-        product.discountPercentage || null,
-        product.rating || null,
-        product.stock || null,
-        product.brand || null,
-        product.thumbnail
-      ];
-
-      await connection.execute(productQuery, productValues);
+      await connection.execute(query, [p.id, p.product_name, p.description, p.category, p.price, p.thumbnail_url]);
     }
 
     await connection.commit();
-    console.log('Import successful! Products created and mapped into Railway MySQL database.');
+    console.log('Real local products with thumbnail URLs successfully updated in Railway!');
   } catch (error) {
     if (connection) await connection.rollback();
     console.error('Import failed:', error);
@@ -97,4 +102,4 @@ async function importProducts() {
   }
 }
 
-importProducts();
+importLocalProducts();
