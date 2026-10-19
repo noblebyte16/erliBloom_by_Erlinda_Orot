@@ -1,4 +1,7 @@
-cc
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
 
 /* Main Workspace */
 .main-workspace, .phone-screen {
