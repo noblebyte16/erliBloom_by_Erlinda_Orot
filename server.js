@@ -163,11 +163,11 @@ app.post('/api/maya/checkout', async (req, res) => {
         currency: 'PHP'
       },
       items: mayaItems,
-      redirectUrl: {
-        success: 'http://localhost:3000/home.html?status=success',
-        failure: 'http://localhost:3000/home.html?status=failure',
-        cancel: 'http://localhost:3000/home.html?status=cancel'
-      },
+    redirectUrl: {
+  success: process.env.PUBLIC_URL || 'https://erlibloombyerlindaorot-production.up.railway.app/home.html',
+  failure: process.env.PUBLIC_URL || 'https://erlibloombyerlindaorot-production.up.railway.app/home.html',
+  cancel: process.env.PUBLIC_URL || 'https://erlibloombyerlindaorot-production.up.railway.app/home.html'
+},
       requestReferenceNumber: `REQ-${Date.now()}`
     };
 
