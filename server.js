@@ -40,15 +40,20 @@ app.get('/', (req, res) => {
 });
 
 // 2. Establish a MySQL Connection Pool
-const pool = mysql.createPool({
+const dbConfig = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'erli_bloom',
   port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
+    ssl: {
+        rejectUnauthorized: false
+    },
+
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
+
 });
 
 // Mock database
