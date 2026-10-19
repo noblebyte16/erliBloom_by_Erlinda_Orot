@@ -989,3 +989,18 @@ button.add-to-cart:hover {
 .toggle-password:hover {
     color: #333;
 }
+/* Mobile Responsiveness Fix */
+@media (max-width: 768px) {
+  /* Make main layout stack vertically */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Force flex containers to stack on mobile */
+  .hero-section, .desktop-container, .main-workspace {
+    flex-direction: column !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+  }
+}
