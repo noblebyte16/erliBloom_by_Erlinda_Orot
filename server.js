@@ -40,16 +40,12 @@ app.get('/', (req, res) => {
 });
 
 // 2. Establish a MySQL Connection Pool
-const dbConfig = mysql.createPool({
+const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'railway',
   port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
-    ssl: {
-        rejectUnauthorized: false
-    },
-
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -106,28 +102,27 @@ app.delete('/api/items/:id', (req, res) => {
 });
 
 app.get('/api/products', async (req, res) => {
-    try {
-        const { category, brand } = req.query;
+  try {
+    const { category, brand } = req.query;
 
-        let query = 'SELECT * FROM products WHERE 1=1';
-        const queryParams = [];
+    let query = 'SELECT id, product_name AS title, description, category, price, discount_percentage, rating, stock, brand, thumbnail_url FROM products WHERE 1=1';
+    const queryParams = [];
 
-        if (category) {
-            // TRIM and ignore extra spaces or line breaks during comparison
-            query += ' AND TRIM(REPLACE(REPLACE(category, "\r", ""), "\n", "")) = ?';
-            queryParams.push(category.trim());
-        }
-        if (brand) {
-            query += ' AND TRIM(REPLACE(REPLACE(brand, "\r", ""), "\n", "")) = ?';
-            queryParams.push(brand.trim());
-        }
-
-        const [rows] = await pool.query(query, queryParams);
-        res.status(200).json(rows);
-    } catch (error) {
-        console.error('MySQL Error:', error.message);
-        res.status(500).json({ error: 'Failed to retrieve products from database.' });
+    if (category) {
+      query += ' AND TRIM(REPLACE(REPLACE(category, "\\r", ""), "\\n", "")) = ?';
+      queryParams.push(category.trim());
     }
+    if (brand) {
+      query += ' AND TRIM(REPLACE(REPLACE(brand, "\\r", ""), "\\n", "")) = ?';
+      queryParams.push(brand.trim());
+    }
+
+    const [rows] = await pool.query(query, queryParams);
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error('MySQL Error:', error.message);
+    res.status(500).json({ error: 'Failed to retrieve products from database.' });
+  }
 });
 
 // MAYA CHECKOUT ENDPOINT
