@@ -989,18 +989,32 @@ button.add-to-cart:hover {
 .toggle-password:hover {
     color: #333;
 }
-/* Mobile Responsiveness Fix */
-@media (max-width: 768px) {
-  /* Make main layout stack vertically */
-  body {
-    overflow-x: hidden;
-  }
-  
-  /* Force flex containers to stack on mobile */
-  .hero-section, .desktop-container, .main-workspace {
+/* Mobile Portrait Only Fix (Screens narrower than 600px) */
+@media (max-width: 600px) {
+  /* Stack the header elements vertically in portrait mode */
+  .main-header {
     flex-direction: column !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    height: auto !important;
     padding: 10px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Prevent text overlapping in navigation */
+  .nav-item {
+    font-size: 14px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Stack hero section elements for narrow screens */
+  .hero-section {
+    flex-direction: column !important;
+    text-align: center !important;
   }
 }
