@@ -105,7 +105,23 @@ app.get('/api/products', async (req, res) => {
   try {
     const { category, brand } = req.query;
 
-    let query = 'SELECT id, product_name AS title, description, category, price, discount_percentage, rating, stock, brand, thumbnail_url FROM products WHERE 1=1';
+    let query = `
+      SELECT 
+        id, 
+        product_name AS title, 
+        product_name AS name, 
+        product_name AS product_name, 
+        description, 
+        category, 
+        price, 
+        discount_percentage, 
+        rating, 
+        stock, 
+        brand, 
+        thumbnail_url 
+      FROM products 
+      WHERE 1=1
+    `;
     const queryParams = [];
 
     if (category) {
